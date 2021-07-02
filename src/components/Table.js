@@ -1,5 +1,3 @@
-import { bashCompletionSpecFromOptions } from "dashdash";
-
 export const genTable = (compData) => {
   return (
     <div key={Math.round(Math.random() * 10000)}>
