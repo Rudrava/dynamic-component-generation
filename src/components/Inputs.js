@@ -23,7 +23,15 @@ export const OptionTypeInput = ({ data, onChange }) => {
         <div className="optionField" key={Math.round(Math.random() * 10000)}>
           <label htmlFor={opt?.value}>{opt?.label}</label>
           <input
-            onChange={onChange}
+            onChange={(e) => {
+              const value = [];
+              document
+                .querySelectorAll(`input[type=${data.fieldType}]`)
+                .forEach((node) => node.checked && value.push(node.value));
+              onChange({
+                target: { name: data?.fieldName, value },
+              });
+            }}
             type={opt?.optionType}
             name={data?.fieldName}
             id={opt?.value}
@@ -38,14 +46,16 @@ export const OptionTypeInput = ({ data, onChange }) => {
 export const DropdownTypeInput = ({ data, onChange }) => {
   return (
     <div className="inputField">
-      <label htmlFor={data?.fieldName}>{data?.fieldLabel}</label>
-      <select onChange={onChange} name={data?.fieldName} id={data?.fieldName}>
-        {data?.options.map((opt) => (
-          <option key={Math.round(Math.random() * 10000)} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
+      <label htmlFor={data?.fieldName}>
+        {data?.fieldLabel}
+        <select onChange={onChange} name={data?.fieldName} id={data?.fieldName}>
+          {data?.options.map((opt) => (
+            <option key={Math.round(Math.random() * 10000)} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </label>
     </div>
   );
 };

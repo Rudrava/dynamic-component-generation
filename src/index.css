@@ -405,6 +405,9 @@ input[readonly],
 textarea[readonly] {
   background-color: var(--color-bg-secondary);
 }
+input {
+  width: 100%;
+}
 
 label {
   font-weight: bold;
@@ -473,4 +476,8 @@ blockquote footer {
   font-size: small;
   line-height: var(--line-height);
   padding: 1.5rem 0;
+}
+
+.inputField {
+  border: 1px solid teal;
 }

@@ -44,6 +44,7 @@ const genData = {
           { value: "as", label: "Assam" },
           { value: "nl", label: "Nagaland" },
         ],
+        multiple: true,
         required: true,
       },
       {
