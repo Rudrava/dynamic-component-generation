@@ -2,13 +2,9 @@ import genData from "./Data";
 import ComponentProvider from "./lib/Component.context";
 import { genComponent } from "./lib/Filter";
 
-const options = {
-  onChange: (e) => console.log({ name: e.target.name, value: e.target.value }),
-};
-
 function App() {
   return (
-    <ComponentProvider options={options}>
+    <ComponentProvider>
       {Object.keys(genData).map((key, i) => {
         const compData = genData[key];
         return (
