@@ -6,10 +6,10 @@ import {
 import { ComponentType, InputFieldType } from "../ComponentTypes";
 import { generateInput } from "./ComponentGenerators";
 
-export const genComponent = (type, compData, onChange) => {
+export const genComponent = (type, compData) => {
   switch (type) {
     case ComponentType.input:
-      return generateInput(compData, onChange);
+      return generateInput(compData);
     case ComponentType.form:
       return "Form";
     default:
@@ -17,7 +17,7 @@ export const genComponent = (type, compData, onChange) => {
   }
 };
 
-export const genInput = (compData, onChange) => {
+export const genInput = (compData) => {
   switch (compData.fieldType) {
     //   RENDERS same type of input box
     case InputFieldType.text:
@@ -27,7 +27,6 @@ export const genInput = (compData, onChange) => {
         <TextTypeInput
           key={Math.round(Math.random() * 10000)}
           data={compData}
-          onChange={onChange}
         />
       );
 
@@ -37,7 +36,6 @@ export const genInput = (compData, onChange) => {
         <DropdownTypeInput
           key={Math.round(Math.random() * 10000)}
           data={compData}
-          onChange={onChange}
         />
       );
 
@@ -48,7 +46,6 @@ export const genInput = (compData, onChange) => {
         <OptionTypeInput
           key={Math.round(Math.random() * 10000)}
           data={compData}
-          onChange={onChange}
         />
       );
     default:

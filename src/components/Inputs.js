@@ -1,6 +1,8 @@
 import React from "react";
+import { useHandlers } from "../lib/Component.context";
 
-export const TextTypeInput = ({ data, onChange }) => {
+export const TextTypeInput = ({ data }) => {
+  const { onChange } = useHandlers();
   return (
     <div className="inputField">
       <label htmlFor={data?.fieldName}>{data?.fieldLabel}</label>
@@ -15,7 +17,8 @@ export const TextTypeInput = ({ data, onChange }) => {
     </div>
   );
 };
-export const OptionTypeInput = ({ data, onChange }) => {
+export const OptionTypeInput = ({ data }) => {
+  const { onChange } = useHandlers();
   return (
     <div className="inputField">
       <h3 className="label">{data?.fieldLabel}</h3>
@@ -43,7 +46,8 @@ export const OptionTypeInput = ({ data, onChange }) => {
   );
 };
 
-export const DropdownTypeInput = ({ data, onChange }) => {
+export const DropdownTypeInput = ({ data }) => {
+  const { onChange } = useHandlers();
   return (
     <div className="inputField">
       <label htmlFor={data?.fieldName}>

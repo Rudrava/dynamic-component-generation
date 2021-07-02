@@ -479,5 +479,22 @@ blockquote footer {
 }
 
 .inputField {
-  border: 1px solid teal;
+  display: flex;
+  flex-direction: column;
+}
+.optionField {
+  display: flex;
+  width: 50%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.optionField label {
+  position: relative;
+  margin-left: 15px;
+  top: -6px;
+  order: 10;
+}
+.optionField input {
+  width: fit-content;
 }
