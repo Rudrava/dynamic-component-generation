@@ -13,6 +13,6 @@ const Form = ({ compData }) => {
 };
 
 const genForm = (compData) => {
-  return <Form compData={compData} />;
+  return <Form key={Math.round(Math.random() * 10000)} compData={compData} />;
 };
 export default genForm;

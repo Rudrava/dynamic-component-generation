@@ -57,7 +57,9 @@ export const DropdownTypeInput = ({ data }) => {
   const { onChange } = useHandlers();
   return (
     <div className="inputField">
-      <label htmlFor={data?.fieldName}>{data?.fieldLabel}</label>
+      <label key={Math.round(Math.random() * 10000)} htmlFor={data?.fieldName}>
+        {data?.fieldLabel}
+      </label>
 
       <select
         className="input"
@@ -77,12 +79,13 @@ export const DropdownTypeInput = ({ data }) => {
 };
 
 const genInput = (data) => {
-  return data.map((compData) => {
+  return data?.map((compData) => {
     switch (compData.fieldType) {
       //   RENDERS same type of input box
       case InputFieldType.text:
       case InputFieldType.number:
       case InputFieldType.email:
+      case InputFieldType.password:
         return (
           <TextTypeInput
             key={Math.round(Math.random() * 10000)}

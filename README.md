@@ -15,8 +15,16 @@
 
 - [x] form - takes data and generates a form with given fields
 
-- [ ] modal - generates a modal and button to trigger modal
+- [x] modal - generates a modal and button to trigger modal
 
-- [ ] Data display field - list type data display
+- [x] Data display field - list type data display
 
-- [ ] tables - html table GENERATION
+- [x] tables - html table GENERATION
+
+# TODO
+
+- [ ] unified data structure
+- [ ] data parsing from inputs unified
+- [ ] hooks for opening closing modals
+- [ ] integration of inputs on lists
+- [ ] modal trigger on list
