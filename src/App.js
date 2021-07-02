@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import genData from "./Data";
+import { genComponent } from "./lib/Filter";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {Object.keys(genData).map((key, i) => {
+        const compData = genData[key];
+        return (
+          <section key={i + 1}>
+            <div>
+              {genComponent(compData.type, compData.data, (e) =>
+                console.log({ name: e.target.name, value: e.target.value })
+              )}
+            </div>
+          </section>
+        );
+      })}
+    </>
   );
 }
 
