@@ -1,6 +1,10 @@
 # COMPONENT DYNAMIC GENERATION
 
-    THIS PROJECT IS A SORT OF pet project where i aim to produce components with JSON data and do it in as much modular form as possible.
+**THIS PROJECT IS A SORT OF pet project** where i aim to produce 
+components with JSON data and do it in as much modular form as possible.
+    
+## DEPLOYED
+ [dynamic-component-generator](https://dynamic-component-generator.netlify.app/)
 
 ## COMPONENTS TARGETED
 
