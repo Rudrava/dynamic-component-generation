@@ -138,6 +138,7 @@ const genData = {
             child: [
                 {
                     type: "list",
+                    in: "modal",
                     data: {
                         listHeader: "List 1",
                         child: [
@@ -148,6 +149,8 @@ const genData = {
                 },
                 {
                     type: "list",
+                    in: "modal",
+
                     data: {
                         listHeader: "List 2",
                         child: [
@@ -158,6 +161,8 @@ const genData = {
                 },
                 {
                     type: "input",
+                    in: "modal",
+
                     data: [
                         {
                             fieldLabel: "Username",
@@ -177,6 +182,8 @@ const genData = {
                 },
                 {
                     type: "form",
+                    in: "modal",
+
                     data: {
                         child: [
                             {
@@ -198,6 +205,8 @@ const genData = {
                 },
                 {
                     type: "table",
+                    in: "modal",
+
                     data: {
                         tableHeader: "Menu",
                         headers: ["Food Name", "Price"],

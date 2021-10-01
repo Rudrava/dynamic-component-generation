@@ -4,6 +4,7 @@ import { genComponent } from "./lib/Filter";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import RootPage from "./RootPage";
 import { useEffect, useRef } from "react";
+import getId from "./lib/CoponentHash";
 
 function App() {
     return (
@@ -15,20 +16,28 @@ function App() {
     );
 }
 
-const Components = () => (
-    <main>
-        <ComponentProvider>
-            {Object.keys(genData).map((key, i) => {
-                const compData = genData[key];
-                return (
-                    <div key={Math.round(Math.random() * 1000)}>
-                        {genComponent(compData.type, compData.data)}
-                    </div>
-                );
-            })}
-        </ComponentProvider>
-    </main>
-);
+const Components = () => {
+    useEffect(() => document.body.classList.remove(`data-page`), []);
+
+    return (
+        <main>
+            <ComponentProvider>
+                {Object.keys(genData).map((key, i) => {
+                    const compData = genData[key];
+                    return (
+                        <div key={Math.round(Math.random() * 1000)}>
+                            {genComponent(
+                                compData.type,
+                                compData.data,
+                                getId()
+                            )}
+                        </div>
+                    );
+                })}
+            </ComponentProvider>
+        </main>
+    );
+};
 
 const preetyLib = {
     replacer: function (match, pIndent, pKey, pVal, pEnd) {
@@ -77,15 +86,18 @@ const PreetyJSON = ({ json }) => {
     );
 };
 
-const Data = () => (
-    <body className="data-page">
-        {Object.values(genData).map((d, i) => (
-            <div className="code" key={i}>
-                <h1>{d.type}</h1>
-                <PreetyJSON json={d} />
-            </div>
-        ))}
-    </body>
-);
+const Data = () => {
+    useEffect(() => document.body.classList.add(`data-page`), []);
+    return (
+        <>
+            {Object.values(genData).map((d, i) => (
+                <section className="code" key={i}>
+                    <h1>{d.type}</h1>
+                    <PreetyJSON json={d} />
+                </section>
+            ))}
+        </>
+    );
+};
 
 export default App;

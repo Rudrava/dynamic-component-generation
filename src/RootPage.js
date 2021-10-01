@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 
@@ -36,20 +37,24 @@ const Markdown = `
 
 const Readme = () => <ReactMarkdown children={Markdown} />;
 
-const RootPage = () => (
-  <main>
-    <ul>
-      <h1>links</h1>
-      <li>
-        <Link to="/components">Components</Link>
-      </li>
-      <li>
-        <Link to="/data">Raw data</Link>
-      </li>
-    </ul>
+const RootPage = () => {
+    useEffect(() => document.body.classList.remove(`data-page`), []);
 
-    <Readme />
-  </main>
-);
+    return (
+        <main>
+            <ul>
+                <h1>links</h1>
+                <li>
+                    <Link to="/components">Components</Link>
+                </li>
+                <li>
+                    <Link to="/data">Raw data</Link>
+                </li>
+            </ul>
+
+            <Readme />
+        </main>
+    );
+};
 
 export default RootPage;
